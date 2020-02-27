@@ -1,2 +1,2 @@
 # angularProjectContainer
-All projects related to angular
+All projects related to angular project
