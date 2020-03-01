@@ -1,0 +1,72 @@
+<div class="employeeList">
+    <div class="container">
+        <label for="title">Search using name or city</label>
+
+        <div class="header">
+            <input type="text" name="searchFilter" id="searchText" [(ngModel)]='searchFilter'
+                (keyup)='searchFunction()'>
+            <button class="addNewBtn" (click)='onClickAddNew()'>Add New</button>
+        </div>
+
+        <div class="container" *ngIf='filterList?.length > 0'>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            NAME
+                        </th>
+                        <th>
+                            PHONE
+                        </th>
+                        <th>
+                            CITY
+                        </th>
+                        <th>
+                            ADDRESS 1
+                        </th>
+                        <th>
+                            ADDRESS 2
+                        </th>
+                        <th>
+                            POSTAL CODE
+                        </th>
+                        <th>
+                            EDIT
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of filterList; let i = index">
+                        <td>
+                            {{data.id}}
+                        </td>
+                        <td>
+                            {{data.name}}
+                        </td>
+                        <td>
+                            {{data.phone}}
+                        </td>
+                        <td>
+                            {{data.address.city}}
+                        </td>
+                        <td>
+                            {{data.address.address_line1}}
+                        </td>
+                        <td>
+                            {{data.address.address_line2}}
+                        </td>
+                        <td>
+                            {{data.address.postal_code}}
+                        </td>
+                        <td>
+                            <a [routerLink]="['/employees', data.id, 'edit']">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

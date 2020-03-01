@@ -1,0 +1,12 @@
+.employeeList{
+    padding: 5%;
+}
+
+.container{
+    padding: 20px;
+}
+
+.addNewBtn{
+    float: right;
+    margin-right: 20px;
+}

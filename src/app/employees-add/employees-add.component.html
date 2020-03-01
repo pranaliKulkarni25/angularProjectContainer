@@ -1,0 +1,74 @@
+<div class="addemployee">
+    <div class="container">
+        <label>
+            Add Employee
+        </label>
+        <div class="employeeform">
+            <form [formGroup]='addForm' (ngSubmit)='onSubmit()'>
+                <div class="form-group">
+                    <label>Name</label>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control form-input" name="name" formControlName="name" id="name">
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
+                            <div *ngIf="name.errors.required">
+                                Name is required.
+                            </div>
+                            <div *ngIf="name.errors.minlength">
+                                Minimum length is 4 characters.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <div class="col-md-12">
+                        <input class="form-control form-input" type="text" name="phone" formControlName="phone"
+                            id="phone" placeholder="Enter your phone number">
+                        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error">
+                            <div *ngIf="phone.errors.required">
+                                Phone number is required.
+                            </div>
+                            <div *ngIf="phone.errors.pattern">
+                                Invalid phone number.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div formGroupName="address">
+                    <div class="form-group">
+                        <label>City</label>
+                        <div class="col-md-12">
+                            <input class="form-control form-input" type="text" name="city" formControlName="city"
+                                id="city" placeholder="Enter your city">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>address_line1</label>
+                        <div class="col-md-12">
+                            <input class="form-control form-input" type="text" name="address_line1"
+                                formControlName="address_line1" id="address_line1"
+                                placeholder="Enter your address_line1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>address_line2</label>
+                        <div class="col-md-12">
+                            <input class="form-control form-input" type="text" name="address_line2"
+                                formControlName="address_line2" id="address_line2"
+                                placeholder="Enter your address_line2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>postal_code</label>
+                        <div class="col-md-12">
+                            <input class="form-control form-input" type="text" name="postal_code"
+                                formControlName="postal_code" id="postal_code" placeholder="Enter your postal_code">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!addForm.valid">Add</button>
+
+            </form>
+        </div>
+    </div>
+</div>
